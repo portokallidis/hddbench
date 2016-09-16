@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#become root and install prerequisites
-# sudo apt-get install hdparm -y
-
 echo "Simple HDD benchmark (dd based)"
 echo "--------"
 echo "Tests copied from"
@@ -13,40 +10,22 @@ echo "Starting..."
 echo " "
 
 echo "==Throughput=="
-# sudo hdparm -W1 /dev/sda
-echo "One gigabyte was written for the test, first with the cache activated (hdparm -W1 /dev/sda)"
+echo "1GB was written for the test"
 echo "Typical Laptop: 1073741824 bytes (1.1 GB) copied, 32.474 s, 33.1 MB/s"
+echo "Typical VPS: 1073741824 bytes (1.1 GB) copied, 9.94862 s, 108 MB/s"
 testfile1=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
 sudo dd if=/dev/zero of=/root/$testfile1 bs=1G count=1 oflag=direct
 sleep 2
 echo "---"
 echo " "
 
-# sudo hdparm -W0 /dev/sda
-# echo "Then, with the cache deactivated (hdparm -W0 /dev/sda):"
-# echo "Typical Laptop: 1073741824 bytes (1.1 GB) copied, 123.37 s, 8.7 MB/s"
-# sudo dd if=/dev/zero of=/root/testfile bs=1G count=1 oflag=direct  
-# sleep 2
-# echo "---"
-# echo "== =="
-
 
 echo "==Latency=="
-# sudo hdparm -W1 /dev/sda
-echo "One gigabyte was written for the test, first with the cache activated (hdparm -W1 /dev/sda)"
+echo "512KB was written for the test"
 echo "Typical Laptop: 512000 bytes (512 kB) copied, 0.36084 s, 1.4 MB/s"
+echo "Typical VPS: 512000 bytes (512 kB) copied, 0.812216 s, 630 kB/s"
 testfile2=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
 sudo dd if=/dev/zero of=/root/$testfile2 bs=512 count=1000 oflag=direct
 sleep 2
 echo "---"
 echo " "
-
-# sudo hdparm -W0 /dev/sda
-# echo "Then, with the cache deactivated (hdparm -W0 /dev/sda):"
-# echo "Typical Laptop: 512000 bytes (512 kB) copied, 11.1865 s, 45.8 kB/s"
-# sudo dd if=/dev/zero of=/root/testfile bs=512 count=1000 oflag=direct
-# sleep 2
-# echo "---"
-# echo "== =="
-# echo " "
-
