@@ -29,9 +29,6 @@ echo " "
 # echo "---"
 # echo "== =="
 
-echo " "
-echo " "
-echo " "
 
 echo "==Latency=="
 # sudo hdparm -W1 /dev/sda

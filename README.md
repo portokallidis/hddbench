@@ -10,4 +10,4 @@ Simple Throughput and latency HDD tests with or without cache using the linux
 
 Inspect the script if you dont trust me :p and run like this:
 
-    sudo bash <(curl -s https://raw.githubusercontent.com/portokallidis/hddbench/master/test1)
+    curl -s -N https://raw.githubusercontent.com/portokallidis/hddbench/master/test1 | sudo bash
