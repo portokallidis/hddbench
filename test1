@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #become root and install prerequisites
-sudo -i
-apt-get install hdparm -y
+# sudo apt-get install hdparm -y
 
 echo "Simple HDD benchmark (dd based)"
 echo "--------"
@@ -14,42 +13,42 @@ echo "Starting..."
 echo " "
 
 echo "==Throughput=="
-hdparm -W1 /dev/sda
+# sudo hdparm -W1 /dev/sda
 echo "One gigabyte was written for the test, first with the cache activated (hdparm -W1 /dev/sda)"
 echo "Typical Laptop: 1073741824 bytes (1.1 GB) copied, 32.474 s, 33.1 MB/s"
-dd if=/dev/zero of=/root/testfile bs=1G count=1 oflag=direct
+sudo dd if=/dev/zero of=/root/testfile bs=1G count=1 oflag=direct
 sleep 2
 echo "---"
 echo " "
 
-hdparm -W0 /dev/sda
-echo "Then, with the cache deactivated (hdparm -W0 /dev/sda):"
-echo "Typical Laptop: 1073741824 bytes (1.1 GB) copied, 123.37 s, 8.7 MB/s"
-dd if=/dev/zero of=/root/testfile bs=1G count=1 oflag=direct  
-sleep 2
-echo "---"
-echo "== =="
+# sudo hdparm -W0 /dev/sda
+# echo "Then, with the cache deactivated (hdparm -W0 /dev/sda):"
+# echo "Typical Laptop: 1073741824 bytes (1.1 GB) copied, 123.37 s, 8.7 MB/s"
+# sudo dd if=/dev/zero of=/root/testfile bs=1G count=1 oflag=direct  
+# sleep 2
+# echo "---"
+# echo "== =="
 
 echo " "
 echo " "
 echo " "
 
 echo "==Latency=="
-hdparm -W1 /dev/sda
+# sudo hdparm -W1 /dev/sda
 echo "One gigabyte was written for the test, first with the cache activated (hdparm -W1 /dev/sda)"
 echo "Typical Laptop: 512000 bytes (512 kB) copied, 0.36084 s, 1.4 MB/s"
-dd if=/dev/zero of=/root/testfile bs=512 count=1000 oflag=direct
+sudo dd if=/dev/zero of=/root/testfile bs=512 count=1000 oflag=direct
 sleep 2
 echo "---"
 echo " "
 
-hdparm -W0 /dev/sda
-echo "Then, with the cache deactivated (hdparm -W0 /dev/sda):"
-echo "Typical Laptop: 512000 bytes (512 kB) copied, 11.1865 s, 45.8 kB/s"
-dd if=/dev/zero of=/root/testfile bs=512 count=1000 oflag=direct
-sleep 2
-echo "---"
-echo "== =="
-echo " "
+# sudo hdparm -W0 /dev/sda
+# echo "Then, with the cache deactivated (hdparm -W0 /dev/sda):"
+# echo "Typical Laptop: 512000 bytes (512 kB) copied, 11.1865 s, 45.8 kB/s"
+# sudo dd if=/dev/zero of=/root/testfile bs=512 count=1000 oflag=direct
+# sleep 2
+# echo "---"
+# echo "== =="
+# echo " "
 
 exit
