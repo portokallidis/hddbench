@@ -5,3 +5,9 @@ Tests copied from
 
 Simple Throughput and latency HDD tests with or without cache using the linux 
 [dd](https://en.wikipedia.org/wiki/Dd_(Unix)) utility
+
+### One liner
+
+Inspect the script if you dont trust me :p and run like this:
+
+    sudo bash <(curl -s https://raw.githubusercontent.com/portokallidis/hddbench/master/test1)
